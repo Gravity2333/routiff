@@ -1,6 +1,6 @@
 {
   "name": "routiff",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "处理路由diff",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
