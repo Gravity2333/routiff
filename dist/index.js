@@ -22,4 +22,12 @@ exports.commit = commit_1.commitRouteChanges;
 __exportStar(require("./commit"), exports);
 __exportStar(require("./diff"), exports);
 __exportStar(require("./typings"), exports);
+if (typeof window === 'object') {
+    window.diff = diff_1.diffRoutes;
+    window.commit = exports.commit;
+}
+if (typeof global === 'object') {
+    global.diff = diff_1.diffRoutes;
+    global.commit = exports.commit;
+}
 //# sourceMappingURL=index.js.map
