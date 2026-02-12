@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.diffRoutes = diffRoutes;
 const flags_1 = require("./flags");
 const deepClone_1 = require("./utils/deepClone");
+const equal_1 = require("./utils/equal");
 function diffRoutes(currentRoutes, newRoutes) {
     const wipRoutes = (0, deepClone_1.deepClone)(newRoutes);
     const mutations = collectMutations(currentRoutes, wipRoutes);
@@ -42,7 +43,7 @@ function travserAndCollectMutationsDFS(current, wip, context) {
     else if (!current && !wip) {
         return;
     }
-    if (!isRouteNodeSame(current, wip)) {
+    if (!(0, equal_1.isRouteNodeSame)(current, wip)) {
         context.mutations.push({
             type: flags_1.DELETE_ROUTES_FALG,
             paths: [...context.currentRoutesPath],
@@ -93,20 +94,5 @@ function travserAndCollectMutationsDFS(current, wip, context) {
             });
         });
     }
-}
-function isRouteNodeSame(current, wip) {
-    if (current === wip)
-        return true;
-    if (!current || !wip)
-        return false;
-    const keys = Object.keys(current);
-    const wipKeys = Object.keys(wip);
-    if (keys.length !== wipKeys.length)
-        return false;
-    return keys.every((key) => {
-        if (key === "routes")
-            return true;
-        return Object.is(current[key], wip[key]);
-    });
 }
 //# sourceMappingURL=diff.js.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"diff.d.ts","sourceRoot":"","sources":["../src/diff.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,aAAa,EAAE,SAAS,EAAE,MAAM,WAAW,CAAC;AAQrD,wBAAgB,UAAU,CAAC,eAAe,SAAS,SAAS,EAC1D,aAAa,EAAE,eAAe,EAAE,EAChC,SAAS,EAAE,eAAe,EAAE,oCAM7B"}
+{"version":3,"file":"diff.d.ts","sourceRoot":"","sources":["../src/diff.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,aAAa,EAAE,SAAS,EAAE,MAAM,WAAW,CAAC;AASrD,wBAAgB,UAAU,CAAC,eAAe,SAAS,SAAS,EAC1D,aAAa,EAAE,eAAe,EAAE,EAChC,SAAS,EAAE,eAAe,EAAE,oCAM7B"}

@@ -1,6 +1,7 @@
 import { DELETE_ROUTES_FALG, MOUNT_ROUTES_FALG } from "./flags";
 import { RouteMutation, RouteType } from "./typings";
 import { deepClone } from "./utils/deepClone";
+import { isRouteNodeSame } from "./utils/equal";
 
 /**
  * 对比路径DIFF
@@ -171,29 +172,4 @@ function travserAndCollectMutationsDFS<CustomRouteType extends RouteType>(
       );
     });
   }
-}
-
-/**
- * 比较单个 Route 节点的基本信息是否相同 (不对比 routes 数组)
- */
-function isRouteNodeSame<T extends RouteType>(current: T, wip: T): boolean {
-  // 引用相同，或者都为 null/undefined，视为相同
-  if (current === wip) return true;
-  if (!current || !wip) return false;
-
-  // 获取当前节点所有属性的 key
-  const keys = Object.keys(current) as (keyof T)[];
-
-  // 检查 keys 数量是否一致，不一致肯定不同
-  const wipKeys = Object.keys(wip);
-  if (keys.length !== wipKeys.length) return false;
-
-  // 使用 every 检查所有一层属性是否一致
-  return keys.every((key) => {
-    // 忽略 routes 子路由数组的对比
-    if (key === "routes") return true;
-
-    // 对比基本类型值
-    return Object.is(current[key], wip[key]);
-  });
 }
