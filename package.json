@@ -1,0 +1,17 @@
+{
+  "name": "routiff",
+  "version": "0.0.1",
+  "description": "处理路由diff",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.1",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
